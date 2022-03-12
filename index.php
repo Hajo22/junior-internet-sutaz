@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/languages.js"></script>
     <title>FreeView</title>
 </head>
 <body>
@@ -23,43 +26,46 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Časová os</a>
+            <a class="nav-link langTimeline active" aria-current="page" href="index.html">Časová os</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Projekt</a>
+            <a class="nav-link langProject" href="#">Projekt</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Účet</a>
+            <a class="nav-link dropdown-toggle langAccount" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Účet</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Prihlásenie</a></li>
-              <li><a class="dropdown-item" href="#">Registrácia</a></li>
-              <li><a class="dropdown-item" href="#">Profil</a></li>
+              <li><a class="dropdown-item langLogin" href="#">Prihlásenie</a></li>
+              <li><a class="dropdown-item langRegister" href="#">Registrácia</a></li>
+              <li><a class="dropdown-item langProfile" href="#">Profil</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Jazyk</a></li>
-              <li><a class="dropdown-item" href="#">Téma</a></li>
+              <li><a class="dropdown-item langLanguage" href="#">Jazyk</a></li>
+              <li><a class="dropdown-item langTheme" href="#">Téma</a></li>
             </ul>
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Zadajte hľadaný výraz" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Hľadať</button>
+          <input class="form-control me-2" id="search" type="search" placeholder="Zadajte hľadaný výraz" aria-label="Search">
+          <button class="btn btn-outline-success langSearch" type="submit">Hľadať</button>
         </form>
       </div>
     </div>
   </nav>
 
   <aside class="aside-panel" id="aside-panel">
-    <h1 class="aside-panel-title">Informácie</h1>
+    <h1 class="aside-panel-title" id="aside-panel-title">Informácie</h1>
     <p>Username</p>
-    <p>Uložené</p>
+    <a href="#" class="langSavedPosts">Uložené</a>
+    <p id="langSK">SK</p>
+    <p id="langEN">EN</p>
+    <p id="langRU">RU</p>
   </aside>
 
   <main id="timeline" class="timeline">
     <div id="newPost" class="newPost">
-      <h1 class="newPost-title">Vytvoriť príspevok</h1>
+      <h1 class="newPost-title langNewPost">Vytvoriť príspevok</h1>
       <form action="index.php" method="post">
         <textarea name="newPost-data" id="newPost-textarea" class="newPost-textarea" placeholder="Čo nového?"></textarea>
-        <button type="submit" class="btn btn-light newPost-submit">Pridať</button>
+        <button type="submit" class="btn btn-light newPost-submit langAddPost">Pridať</button>
       </form>
     </div>
 
@@ -69,7 +75,7 @@
         <p class="postFrom">From</p>
         <p class="postDate">Date</p>
         <p class="postLike">2</p>
-        <p class="postSave">Uložiť</p>
+        <p class="postSave langSavePost">Uložiť</p>
       </section>
     </div>
 
@@ -79,7 +85,7 @@
         <p class="postFrom">From</p>
         <p class="postDate">Date</p>
         <p class="postLike">1</p>
-        <p class="postSave">Uložiť</p>
+        <p class="postSave langSavePost">Uložiť</p>
       </section>
     </div>
 
@@ -89,7 +95,7 @@
         <p class="postFrom">From</p>
         <p class="postDate">Date</p>
         <p class="postLike">36</p>
-        <p class="postSave">Uložiť</p>
+        <p class="postSave langSavePost">Uložiť</p>
       </section>
     </div>
 
@@ -99,7 +105,7 @@
         <p class="postFrom">From</p>
         <p class="postDate">Date</p>
         <p class="postLike">45</p>
-        <p class="postSave">Uložiť</p>
+        <p class="postSave langSavePost">Uložiť</p>
       </section>
     </div>
 
@@ -109,7 +115,7 @@
         <p class="postFrom">From</p>
         <p class="postDate">Date</p>
         <p class="postLike">79</p>
-        <p class="postSave">Uložiť</p>
+        <p class="postSave langSavePost">Uložiť</p>
       </section>
     </div>
 
@@ -119,12 +125,10 @@
     <h1 class="conclusion-title">FreeView 2022</h1>
   </footer>
 
-  <script src="js/languages.js"></script>
-  <script src="js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
 
 <?php
-  
+
 ?>
