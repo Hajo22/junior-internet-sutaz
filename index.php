@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/languages.js"></script>
-    <title>FreeView</title>
+    <title>FreeView Domov</title>
 </head>
 <body>
     
@@ -55,16 +55,20 @@
     <h1 class="aside-panel-title" id="aside-panel-title">Informácie</h1>
     <p>Username</p>
     <a href="#" class="langSavedPosts">Uložené</a>
-    <p id="langSK">SK</p>
-    <p id="langEN">EN</p>
-    <p id="langRU">RU</p>
+    <br>
+    <label for="languages">Vyberte jazyk:</label>
+    <select name="languages" id="language">
+      <option value="1">Slovenský</option>
+      <option value="2">English</option>
+      <option value="3">Русский</option>
+    </select>
   </aside>
 
   <main id="timeline" class="timeline">
     <div id="newPost" class="newPost">
       <h1 class="newPost-title langNewPost">Vytvoriť príspevok</h1>
       <form action="index.php" method="post">
-        <textarea name="newPost-data" id="newPost-textarea" class="newPost-textarea" placeholder="Čo nového?"></textarea>
+        <textarea name="newPost-data" id="newPost-textarea" class="newPost-textarea" placeholder="Čo je nové?"></textarea>
         <button type="submit" class="btn btn-light newPost-submit langAddPost">Pridať</button>
       </form>
     </div>
