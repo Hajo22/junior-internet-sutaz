@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+.navbar{
+    position: relative;
+    min-height: 10vh;
+    z-index: 3;
+    transition: 1s;
+}
+
+.navbar-brand{
+    margin-left: 20%;
+    min-width: 8%;
+    max-height: 2.5rem;
+}
+
+.navbar .navbar-nav{
+    margin: 0 auto;
+}
+
+.navbar .nav-item .nav-link{
+    /*color: white;
+    /*font-weight: bolder;*/
+    transition: 1s;
+}
+
+.navbar .nav-item .nav-link:hover{
+    /*color: rgb(30, 30, 30);*/
+    font-weight: bolder;
+    transition: 1s;
+}
+
+#main{
+    position: relative;
+    display: block;
+    float: center;
+    width: 60%;
+    height: 80vh;
+    background-color: #e9ecef;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    margin: 1rem auto;
+}
+
+#main .title{
+    text-align: center;
+    margin: 1rem;
+}

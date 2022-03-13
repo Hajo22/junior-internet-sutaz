@@ -88,6 +88,9 @@ $(document).ready(function(){
         $(".aside-panel-title").text("Information");
         $(".langSavedPosts").text("Saved");
 
+        //Podstranka - Projekt
+        $(".langProjektTitle").text("Project");
+
         console.log("Translated... ");
     }
 

@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+.navbar{
+    position: relative;
+    min-height: 10vh;
+    z-index: 3;
+    transition: 1s;
+}
+
+.navbar-brand{
+    margin-left: 20%;
+    min-width: 8%;
+    max-height: 2.5rem;
+}
+
+.navbar .navbar-nav{
+    margin: 0 auto;
+}
+
+.navbar .nav-item .nav-link{
+    /*color: white;
+    /*font-weight: bolder;*/
+    transition: 1s;
+}
+
+.navbar .nav-item .nav-link:hover{
+    /*color: rgb(30, 30, 30);*/
+    font-weight: bolder;
+    transition: 1s;
+}
+
+#aside-panel{
+    position: relative;
+    float: right;
+    top: 0;
+    width: 20%;
+    height: 60vh;
+    background-color: #e9ecef;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+#aside-panel .aside-panel-title{
+    font-size: 1.5rem;
+}
+
+#timeline{
+    position: relative;
+    display: block;
+    float: center;
+    width: 40%;
+    height: auto;
+    /*background-color: #f8f9fa;*/
+    border-radius: 1rem;
+    margin: 0rem auto;
+}
+
+#timeline .newPost{
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background-color: #e9ecef;
+    margin-top: 1rem;
+}
+
+#timeline .newPost .newPost-title{
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+#timeline .newPost .newPost-textarea{
+    width: 90%;
+    margin: 1rem;
+    margin-top: 0;
+    padding: 0rem;
+    min-height: 5vh;
+    background: none;
+    font-size: 1.5rem;
+    border: none;
+}
+
+#timeline .newPost .newPost-submit{
+    margin: 1rem;
+    margin-top: 0;
+    background-color: white;
+    color: black;
+    /*border-color: black;*/
+    transition: 1s;
+}
+
+#timeline .newPost .newPost-submit:hover{
+    color: white;
+    border-color: white;
+    background-color: black;
+    transition: 1s;
+}
+
+#timeline .post{
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+    border-radius: 1rem;
+    background-color: #e9ecef;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+#timeline .post .postSection{
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#timeline .post .postSection .postFrom, .postDate, .postLike, .postSave{
+    display: inline;
+    padding-left: 12%;
+}
+
+#conclusion{
+    width: 100%;
+    height: 40vh;
+    background-color: rgb(20, 20, 20);
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+#conclusion .conclusion-title{
+    color: white;
+    text-align: center;
+    
+}
