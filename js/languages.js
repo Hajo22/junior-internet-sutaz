@@ -7,9 +7,10 @@ $(document).ready(function(){
     let lang = ["sk", "en", "ru"];
 
     $("select#language").change(function(){
-        var selectedLanguage = $(this).children("option:selected").val();        
-        
-        switch(Number(selectedLanguage)){
+        var selectedLanguage = $(this).children("option:selected").val();
+        localStorage.setItem("storageLang", Number(selectedLanguage));
+
+        switch(Number(localStorage.getItem("storageLang"))){
             case 1:
                 translateSK();
                 break;
@@ -21,6 +22,18 @@ $(document).ready(function(){
                 break;
         }
     });
+
+    switch(Number(localStorage.getItem("storageLang"))){
+        case 1:
+            translateSK();
+            break;
+        case 2:
+            translateEN();
+            break;
+        case 3:
+            translateRU();
+            break;
+    }
 
     function translateSK(){
         console.log("Prekladanie do Slovenčiny...");
