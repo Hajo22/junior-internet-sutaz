@@ -16,7 +16,15 @@
     <title>FreeView Profil</title>
 </head>
 <body>
-    
+
+  <?php
+    session_start();
+    if(!isset($_SESSION["login"])) {
+      echo "<script>location.href='login.php'</script>";  
+      die("Nejste přihlášen!");
+    }
+  ?>
+
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">FreeView</a>
@@ -36,9 +44,9 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item langLogin" href="login.php">Prihlásenie</a></li>
               <li><a class="dropdown-item langRegister" href="register.php">Registrácia</a></li>
+              <li><a class="dropdown-item langLogout" href="logout.php">Odhlásiť sa</a></li>
               <li><a class="dropdown-item langProfile active" href="profil.php">Profil</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item langLanguage" href="#">Jazyk</a></li>
               <li><a class="dropdown-item langTheme" href="#">Téma</a></li>
             </ul>
           </li>

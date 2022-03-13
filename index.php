@@ -13,10 +13,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/languages.js"></script>
+    <script src="js/time.js"></script>
     <title>FreeView Domov</title>
 </head>
 <body>
-    
+
+  <?php
+    session_start();
+    if(!isset($_SESSION["login"])) {
+      echo "<script>location.href='login.php'</script>";  
+      die("Nejste přihlášen!");
+    }
+  ?>
+
+
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">FreeView</a>
@@ -36,9 +46,9 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item langLogin" href="login.php">Prihlásenie</a></li>
               <li><a class="dropdown-item langRegister" href="register.php">Registrácia</a></li>
+              <li><a class="dropdown-item langLogout" href="logout.php">Odhlásiť sa</a></li>
               <li><a class="dropdown-item langProfile" href="profil.php">Profil</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item langLanguage" href="#">Jazyk</a></li>
               <li><a class="dropdown-item langTheme" href="#">Téma</a></li>
             </ul>
           </li>
@@ -53,8 +63,26 @@
 
   <aside class="aside-panel" id="aside-panel">
     <h1 class="aside-panel-title" id="aside-panel-title">Informácie</h1>
-    <p>Username</p>
+    <p>
+      <?php
+        
+        $database = new mysqli('localhost', 'root', '', 'freeview');
+        $sql = "SELECT user_name FROM user WHERE user_id = " . $_SESSION['login'] . ""; //" . $_SESSION['login'] . "
+      
+        $userName = mysqli_query($database, $sql);
+
+        while($data = mysqli_fetch_array($userName)){
+          $userNameFinal = $data['user_name'];
+
+          echo '<a href="profil.php" class="aside_panel_username">'. $userNameFinal .'</a>';
+        }
+      ?>
+    </p>
     <a href="#" class="langSavedPosts">Uložené</a>
+    <br>
+    <p id="realDate"></p>
+    <p id="realTime"></p>
+    <p id="day"></p>
     <br>
     <label for="languages">Vyberte jazyk:</label>
     <select name="languages" id="language">
@@ -74,6 +102,43 @@
       </form>
     </div>
 
+    <?php
+      $database = new mysqli('localhost', 'root', '', 'freeview');
+
+      if(isset($_POST['newPost-data']))
+      {
+          $msg = htmlspecialchars($_POST['newPost-data']);
+          $sql = "INSERT INTO post (post_creator, post_msg) VALUES ('" . $_SESSION["login"] . "', '" . $msg . "')";
+          $database->query($sql);
+          header('Refresh: 0');
+      }
+    ?>
+
+    <?php
+      $database = new mysqli('localhost', 'root', '', 'freeview');
+      $sql = "SELECT post_creator, post_msg, user_name, post_created, post_likes FROM post INNER JOIN user ON user_id = post_creator ORDER BY post_created DESC LIMIT 50";
+      
+      $result2 = mysqli_query($database, $sql);
+
+      while($data = mysqli_fetch_array($result2)){
+          $subor1 = $data['user_name'];
+          $subor2 = $data['post_msg'];
+          $subor3 = $data['post_created'];
+          $subor4 = $data['post_likes'];
+
+          echo '<div id="post" class="post">';
+          echo '<p class="postText">'.$subor2.'</p>';
+          echo '<section class="postSection">';
+          echo '<p class="postFrom">'.$subor1.'</p>';
+          echo '<p class="postDate">'.$subor3.'</p>';
+          echo '<p class="postLike">'.$subor4.'</p>';
+          echo '<p class="postSave langSavePost">Uložiť</p>';
+          echo '</section>';
+          echo '</div>';
+      }
+    ?>
+
+    <!--
     <div id="post" class="post">
       <p class="postText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum eligendi dolores illum fugiat neque ducimus, nemo pariatur voluptas, voluptate quibusdam tempore in minus consectetur aliquam expedita nisi iste quasi molestias?</p>
       <section class="postSection">
@@ -83,46 +148,7 @@
         <p class="postSave langSavePost">Uložiť</p>
       </section>
     </div>
-
-    <div id="post" class="post">
-      <p class="postText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum eligendi dolores illum fugiat neque ducimus, nemo pariatur voluptas, voluptate quibusdam tempore in minus consectetur aliquam expedita nisi iste quasi molestias?</p>
-      <section class="postSection">
-        <p class="postFrom">From</p>
-        <p class="postDate">Date</p>
-        <p class="postLike">1</p>
-        <p class="postSave langSavePost">Uložiť</p>
-      </section>
-    </div>
-
-    <div id="post" class="post">
-      <p class="postText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum eligendi dolores illum fugiat neque ducimus, nemo pariatur voluptas, voluptate quibusdam tempore in minus consectetur aliquam expedita nisi iste quasi molestias?</p>
-      <section class="postSection">
-        <p class="postFrom">From</p>
-        <p class="postDate">Date</p>
-        <p class="postLike">36</p>
-        <p class="postSave langSavePost">Uložiť</p>
-      </section>
-    </div>
-
-    <div id="post" class="post">
-      <p class="postText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum eligendi dolores illum fugiat neque ducimus, nemo pariatur voluptas, voluptate quibusdam tempore in minus consectetur aliquam expedita nisi iste quasi molestias?</p>
-      <section class="postSection">
-        <p class="postFrom">From</p>
-        <p class="postDate">Date</p>
-        <p class="postLike">45</p>
-        <p class="postSave langSavePost">Uložiť</p>
-      </section>
-    </div>
-
-    <div id="post" class="post">
-      <p class="postText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum eligendi dolores illum fugiat neque ducimus, nemo pariatur voluptas, voluptate quibusdam tempore in minus consectetur aliquam expedita nisi iste quasi molestias?</p>
-      <section class="postSection">
-        <p class="postFrom">From</p>
-        <p class="postDate">Date</p>
-        <p class="postLike">79</p>
-        <p class="postSave langSavePost">Uložiť</p>
-      </section>
-    </div>
+    -->
 
   </main>
   

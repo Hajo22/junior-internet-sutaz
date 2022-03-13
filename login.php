@@ -36,9 +36,9 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item langLogin active" href="login.php">Prihlásenie</a></li>
               <li><a class="dropdown-item langRegister" href="register.php">Registrácia</a></li>
+              <li><a class="dropdown-item langLogout" href="logout.php">Odhlásiť sa</a></li>
               <li><a class="dropdown-item langProfile" href="profil.php">Profil</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item langLanguage" href="#">Jazyk</a></li>
               <li><a class="dropdown-item langTheme" href="#">Téma</a></li>
             </ul>
           </li>
@@ -54,7 +54,7 @@
   <main id="main">
     <h1 class="title langProjektTitle">Prihlásenie</h1>
 
-    <form action="register.php" method="post">
+    <form action="login.php" method="post">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
@@ -71,3 +71,28 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
+
+<?php
+
+  if(isset($_POST['email'])) {
+    $database = new mysqli('localhost', 'root', '', 'freeview');
+    $email = htmlspecialchars($_POST['email']);
+    $password = hash('ripemd160', $_POST['password']);
+
+    $sql = "SELECT * FROM user WHERE user_email = '" . $email . "'";
+    $result = $database->query($sql)->fetch_assoc();
+    if($result === null) {
+        die("Uživateľ neexistuje.");
+    }
+    if($password == $result["user_password"]) {
+        session_start();
+        $_SESSION["login"] = $result["user_id"];
+    } else {
+        die("Zle heslo");
+    }
+
+    echo "Prihlasený";
+    echo "<script>location.href='index.php'</script>";
+  }
+
+?>

@@ -44,6 +44,7 @@ $(document).ready(function(){
         $(".langAccount").text("Účet");
         $(".langLogin").text("Prihlásenie");
         $(".langRegister").text("Registrácia");
+        $(".langLogout").text("Odhlásiť sa");
         $(".langProfile").text("Profil");
         $(".langLanguage").text("Jazyk");
         $(".langTheme").text("Téma");
@@ -72,6 +73,7 @@ $(document).ready(function(){
         $(".langAccount").text("Account");
         $(".langLogin").text("Login");
         $(".langRegister").text("Register");
+        $(".langLogout").text("Logout");
         $(".langProfile").text("Profile");
         $(".langLanguage").text("Language");
         $(".langTheme").text("Theme");
@@ -103,6 +105,7 @@ $(document).ready(function(){
         $(".langAccount").text("Аккаунт");
         $(".langLogin").text("Войти");
         $(".langRegister").text("Регистрация");
+        $(".langLogout").text("Выйти");
         $(".langProfile").text("Профиль");
         $(".langLanguage").text("Язык");
         $(".langTheme").text("Тема");
