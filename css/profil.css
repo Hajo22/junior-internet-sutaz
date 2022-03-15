@@ -44,9 +44,35 @@
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     margin: 1rem auto;
+    padding: 1rem;
 }
 
 #mainProfil .title{
-    text-align: center;
-    margin: 1rem;
+    text-align: left;
+    margin: 1rem 0;
+}
+
+#mainProfil .profilUsername{
+    /*Budes doplnovat ked bude treba*/
+}
+
+#mainProfil .profilPosts{
+    /*Budes doplnovat ked bude treba*/
+}
+
+/*
+    Takto ides az do iphone rozliseni
+    v chrome das preskumat, zapnes si zobrazovanie pre mobily, sak vies ;)
+    vacsinou pouzivam rem,vh,% skus sa ich drzat
+    ked chces zadat mensie rem - das 0.9 a ta dalej ale musi byt .
+*/
+@media only screen and (max-width: 1600px) {
+    /*1600px - notebooky*/
+
+    #mainProfil{
+        /*Pridas vlastnosti ake budu pri tejto sirke, mozes kopirovat a upravovat z vrchu*/
+    }
+
+
+
 }

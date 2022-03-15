@@ -37,8 +37,7 @@ $(document).ready(function(){
         $("#newPost-textarea[placeholder]").css("color", colorText);
         $(post).css("background-color", colorPost);
         $("#aside-panel").css("background-color", colorPost);
-        $("p,a,h1,h2").css("color", colorText);
-        $("label").css("color", colorText);
+        $("p,a,h1,h2,label").css("color", colorText);
 
         //Profil
         $("body").css("background-color", "#495057");
@@ -46,14 +45,14 @@ $(document).ready(function(){
         $(".dropdown-menu").css("background-color", colorNav);
         $("#mainProfil").css("background-color", colorPost);
         $(post).css("background-color", colorPost);
-        $("p,a,h1,h2").css("color", colorText);
+        $("p,a,h1,h2,label").css("color", colorText);
 
         //Projekt
         $("body").css("background-color", "#495057");
         $(".navbar").css("background-color", colorNav);
         $(".dropdown-menu").css("background-color", colorNav);
         $("#mainProjekt").css("background-color", colorPost);
-        $("p,a,h1,h2").css("color", colorText);
+        $("p,a,h1,h2,label").css("color", colorText);
 
         console.log("Tema sa zmenila");
     }
@@ -73,8 +72,7 @@ $(document).ready(function(){
         $("#newPost-textarea[placeholder]").css("color", colorText);
         $(post).css("background-color", colorPost);
         $("#aside-panel").css("background-color", colorPost);
-        $("p,a,h1,h2").css("color", colorText);
-        $("label").css("color", colorText);
+        $("p,a,h1,h2,label").css("color", colorText);
         $(".conclusion-title").css("color", "white");
 
         //Profil
@@ -83,7 +81,7 @@ $(document).ready(function(){
         $(".dropdown-menu").css("background-color", colorNav);
         $("#mainProfil").css("background-color", colorPost);
         $(post).css("background-color", colorPost);
-        $("p,a,h1,h2").css("color", colorText);
+        $("p,a,h1,h2,label").css("color", colorText);
         $(".conclusion-title").css("color", "white");
 
         //Projekt
@@ -91,7 +89,7 @@ $(document).ready(function(){
         $(".navbar").css("background-color", colorNav);
         $(".dropdown-menu").css("background-color", colorNav);
         $("#mainProjekt").css("background-color", colorPost);
-        $("p,a,h1,h2").css("color", colorText);
+        $("p,a,h1,h2,label").css("color", colorText);
         $(".conclusion-title").css("color", "white");
 
         console.log("Tema sa zmenila");

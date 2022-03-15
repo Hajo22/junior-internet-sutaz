@@ -57,6 +57,23 @@
 
   <main id="mainProfil">
     <h1 class="title langProfilTitle">Profil</h1>
+
+    <p id="profilUsername" class="profilUsername">Username</p>
+    <p id="profilPosts" class="profilPosts">Pridané posty: 1</p>
+
+    <form class="row g-3">
+      <div class="col-auto">
+        <label for="staticEmail2" class="visually-hidden">Email</label>
+        <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="miso@gmail.com">
+      </div>
+      <div class="col-auto">
+        <label for="inputPassword2" class="visually-hidden">Password</label>
+        <input type="password" class="form-control" id="inputPassword2" placeholder="Heslo">
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Zmeniť heslo</button>
+      </div>
+  </form>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

@@ -44,9 +44,10 @@
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     margin: 1rem auto;
+    padding: 1rem;
 }
 
 #mainProjekt .title{
     text-align: center;
-    margin: 1rem;
+    margin: 1rem 0;
 }

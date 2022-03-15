@@ -56,7 +56,7 @@
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-        <div id="emailHelp" class="form-text">Email bude skrytý pre ostatných ľudí. Slúži na overenie účtu.</div>
+        <div id="emailHelp" class="form-text">Email bude skrytý pre ostatných ľudí. Slúži na prihlasovanie do účtu.</div>
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Heslo</label>
