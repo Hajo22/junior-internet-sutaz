@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/languages.js"></script>
+    <script src="js/theme.js"></script>
     <title>FreeView Prihlásenie</title>
 </head>
 <body>
@@ -39,14 +40,11 @@
               <li><a class="dropdown-item langLogout" href="logout.php">Odhlásiť sa</a></li>
               <li><a class="dropdown-item langProfile" href="profil.php">Profil</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item langTheme" href="#">Téma</a></li>
+              <li><a class="dropdown-item langTheme" id="switch1" href="#">Téma Dark</a></li>
+              <li><a class="dropdown-item langTheme" id="switch2" href="#">Téma Light</a></li>
             </ul>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" id="search" type="search" placeholder="Zadajte hľadaný výraz" aria-label="Search">
-          <button class="btn btn-outline-success langSearch" type="submit">Hľadať</button>
-        </form>
       </div>
     </div>
   </nav>

@@ -14,6 +14,7 @@
     <script src="js/main.js"></script>
     <script src="js/languages.js"></script>
     <script src="js/time.js"></script>
+    <script src="js/theme.js"></script>
     <title>FreeView Domov</title>
 </head>
 <body>
@@ -22,12 +23,12 @@
     session_start();
     if(!isset($_SESSION["login"])) {
       echo "<script>location.href='login.php'</script>";  
-      die("Nejste přihlášen!");
+      die("Neste prihláseny!");
     }
   ?>
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+  <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">FreeView</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,19 +45,14 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle langAccount" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Účet</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item langLogin" href="login.php">Prihlásenie</a></li>
-              <li><a class="dropdown-item langRegister" href="register.php">Registrácia</a></li>
               <li><a class="dropdown-item langLogout" href="logout.php">Odhlásiť sa</a></li>
               <li><a class="dropdown-item langProfile" href="profil.php">Profil</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item langTheme" href="#">Téma</a></li>
+              <li><a class="dropdown-item langTheme" id="switch1" href="#">Téma Dark</a></li>
+              <li><a class="dropdown-item langTheme" id="switch2" href="#">Téma Light</a></li>
             </ul>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" id="search" type="search" placeholder="Zadajte hľadaný výraz" aria-label="Search">
-          <button class="btn btn-outline-success langSearch" type="submit">Hľadať</button>
-        </form>
       </div>
     </div>
   </nav>

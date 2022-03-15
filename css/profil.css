@@ -34,7 +34,7 @@
     transition: 1s;
 }
 
-#main{
+#mainProfil{
     position: relative;
     display: block;
     float: center;
@@ -46,7 +46,7 @@
     margin: 1rem auto;
 }
 
-#main .title{
+#mainProfil .title{
     text-align: center;
     margin: 1rem;
 }
