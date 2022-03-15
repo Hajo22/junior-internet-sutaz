@@ -65,6 +65,10 @@
     </form>
   </main>
 
+  <script>
+    localStorage.setItem("storageTheme", "light");
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
@@ -79,13 +83,13 @@
     $sql = "SELECT * FROM user WHERE user_email = '" . $email . "'";
     $result = $database->query($sql)->fetch_assoc();
     if($result === null) {
-        die("Uživateľ neexistuje.");
+        die("<script>alert('Uživateľ neexistuje!')</script>");
     }
     if($password == $result["user_password"]) {
         session_start();
         $_SESSION["login"] = $result["user_id"];
     } else {
-        die("Zle heslo");
+      die("<script>alert('Zle heslo!')</script>");
     }
 
     echo "Prihlasený";

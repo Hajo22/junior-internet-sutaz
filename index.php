@@ -116,7 +116,7 @@
 
     <?php
       $database = new mysqli('localhost', 'root', '', 'freeview');
-      $sql = "SELECT post_creator, post_msg, user_name, post_created, post_likes FROM post INNER JOIN user ON user_id = post_creator ORDER BY post_created DESC LIMIT 50";
+      $sql = "SELECT post_creator, post_msg, user_name, post_created, post_likes FROM post INNER JOIN user ON user_id = post_creator ORDER BY user_id DESC LIMIT 50";
       
       $result2 = mysqli_query($database, $sql);
 

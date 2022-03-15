@@ -63,6 +63,10 @@ $(document).ready(function(){
         $(".langSavedPosts").text("Uložené");
         $("#chooseLanguageTitle").text("Vyberte jazyk:");
 
+        //Podstranky
+        $(".langProfilTitle").text("Profil");
+        $(".langProjektTitle").text("Projekt");
+        
         console.log("Preložené... ");
     }
 
@@ -94,7 +98,8 @@ $(document).ready(function(){
         $(".langSavedPosts").text("Saved");
         $("#chooseLanguageTitle").text("Choose language:");
 
-        //Podstranka - Projekt
+        //Podstranky
+        $(".langProfilTitle").text("Profile");
         $(".langProjektTitle").text("Project");
 
         console.log("Translated... ");
@@ -127,6 +132,10 @@ $(document).ready(function(){
         $(".aside-panel-title").text("Информация");
         $(".langSavedPosts").text("Сохранено");
         $("#chooseLanguageTitle").text("Язык:");
+
+        //Podstranky
+        $(".langProfilTitle").text("Профиль");
+        $(".langProjektTitle").text("Проект");
 
         console.log("Переведено... ");
     }
