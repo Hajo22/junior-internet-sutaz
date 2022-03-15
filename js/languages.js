@@ -47,7 +47,8 @@ $(document).ready(function(){
         $(".langLogout").text("Odhlásiť sa");
         $(".langProfile").text("Profil");
         $(".langLanguage").text("Jazyk");
-        $(".langTheme").text("Téma");
+        $(".langThemeDark").text("Téma Dark");
+        $(".langThemeLight").text("Téma Light");
         $(".langSearch").text("Hľadať");
         $("#search").attr("placeholder", "Zadajte hľadaný výraz");
 
@@ -60,6 +61,7 @@ $(document).ready(function(){
         //Aside
         $(".aside-panel-title").text("Informácie");
         $(".langSavedPosts").text("Uložené");
+        $("#chooseLanguageTitle").text("Vyberte jazyk:");
 
         console.log("Preložené... ");
     }
@@ -76,7 +78,8 @@ $(document).ready(function(){
         $(".langLogout").text("Logout");
         $(".langProfile").text("Profile");
         $(".langLanguage").text("Language");
-        $(".langTheme").text("Theme");
+        $(".langThemeDark").text("Dark Theme");
+        $(".langThemeLight").text("Dark Light");
         $(".langSearch").text("Search");
         $("#search").attr("placeholder", "Type your answer here");
 
@@ -89,6 +92,7 @@ $(document).ready(function(){
         //Aside
         $(".aside-panel-title").text("Information");
         $(".langSavedPosts").text("Saved");
+        $("#chooseLanguageTitle").text("Choose language:");
 
         //Podstranka - Projekt
         $(".langProjektTitle").text("Project");
@@ -108,7 +112,8 @@ $(document).ready(function(){
         $(".langLogout").text("Выйти");
         $(".langProfile").text("Профиль");
         $(".langLanguage").text("Язык");
-        $(".langTheme").text("Тема");
+        $(".langThemeDark").text("Темная тема");
+        $(".langThemeLight").text("Светлая тема");
         $(".langSearch").text("Поиск");
         $("#search").attr("placeholder", "Введите ответ здесь");
 
@@ -121,6 +126,7 @@ $(document).ready(function(){
         //Aside
         $(".aside-panel-title").text("Информация");
         $(".langSavedPosts").text("Сохранено");
+        $("#chooseLanguageTitle").text("Язык:");
 
         console.log("Переведено... ");
     }

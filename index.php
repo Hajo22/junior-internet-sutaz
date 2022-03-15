@@ -48,8 +48,8 @@
               <li><a class="dropdown-item langLogout" href="logout.php">Odhlásiť sa</a></li>
               <li><a class="dropdown-item langProfile" href="profil.php">Profil</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item langTheme" id="switch1" href="#">Téma Dark</a></li>
-              <li><a class="dropdown-item langTheme" id="switch2" href="#">Téma Light</a></li>
+              <li><a class="dropdown-item langThemeDark" id="switch1" href="#">Téma Dark</a></li>
+              <li><a class="dropdown-item langThemeLight" id="switch2" href="#">Téma Light</a></li>
             </ul>
           </li>
         </ul>
@@ -74,13 +74,12 @@
         }
       ?>
     </p>
-    <a href="#" class="langSavedPosts">Uložené</a>
     <br>
     <p id="realDate"></p>
     <p id="realTime"></p>
     <p id="day"></p>
     <br>
-    <label for="languages">Vyberte jazyk:</label>
+    <label for="languages" id="chooseLanguageTitle">Vyberte jazyk:</label>
     <select name="languages" id="language">
       <option value="0">Vybrať</option>
       <option value="1">Slovenský</option>
@@ -103,10 +102,15 @@
 
       if(isset($_POST['newPost-data']))
       {
-          $msg = htmlspecialchars($_POST['newPost-data']);
-          $sql = "INSERT INTO post (post_creator, post_msg) VALUES ('" . $_SESSION["login"] . "', '" . $msg . "')";
-          $database->query($sql);
-          header('Refresh: 0');
+
+        $sql1 = "SELECT user_posts FROM user WHERE user_id = " . $_SESSION['login'] . "";
+        $resultPost = mysqli_query($database, $sql);
+
+        $msg = htmlspecialchars($_POST['newPost-data']);
+        $sql = "INSERT INTO post (post_creator, post_msg) VALUES ('" . $_SESSION["login"] . "', '" . $msg . "')";
+        $database->query($sql);
+
+        header('Refresh: 0');
       }
     ?>
 
@@ -120,15 +124,12 @@
           $subor1 = $data['user_name'];
           $subor2 = $data['post_msg'];
           $subor3 = $data['post_created'];
-          $subor4 = $data['post_likes'];
 
           echo '<div id="post" class="post">';
           echo '<p class="postText">'.$subor2.'</p>';
           echo '<section class="postSection">';
           echo '<p class="postFrom">'.$subor1.'</p>';
           echo '<p class="postDate">'.$subor3.'</p>';
-          echo '<p class="postLike">'.$subor4.'</p>';
-          echo '<p class="postSave langSavePost">Uložiť</p>';
           echo '</section>';
           echo '</div>';
       }

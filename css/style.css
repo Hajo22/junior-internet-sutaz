@@ -141,5 +141,55 @@
 #conclusion .conclusion-title{
     color: white;
     text-align: center;
-    
 }
+
+@media only screen and (max-width: 750px) {
+
+    #aside-panel{
+        float: right;
+        width: 30%;
+    }
+
+    #timeline{
+        position: relative;
+        display: block;
+        float: left;
+        width: 60%;
+        height: auto;
+        margin-left: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #conclusion{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+
+    #aside-panel{
+        float: right;
+        width: 30%;
+        padding: 0.5rem;
+    }
+
+    #timeline{
+        position: relative;
+        display: block;
+        float: left;
+        width: 50%;
+        height: auto;
+        margin-left: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    #conclusion{
+        display: none;
+    }
+
+    #aside-panel .aside-panel-title{
+        font-size: 1rem;
+    }
+
+}
+

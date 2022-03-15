@@ -46,8 +46,8 @@
               <li><a class="dropdown-item langLogout" href="logout.php">Odhlásiť sa</a></li>
               <li><a class="dropdown-item langProfile active" href="profil.php">Profil</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item langTheme" id="switch1" href="#">Téma Dark</a></li>
-              <li><a class="dropdown-item langTheme" id="switch2" href="#">Téma Light</a></li>
+              <li><a class="dropdown-item langThemeDark" id="switch1" href="#">Téma Dark</a></li>
+              <li><a class="dropdown-item langThemeLight" id="switch2" href="#">Téma Light</a></li>
             </ul>
           </li>
         </ul>
@@ -58,9 +58,17 @@
   <main id="mainProfil">
     <h1 class="title langProfilTitle">Profil</h1>
 
-    <p id="profilUsername" class="profilUsername">Username</p>
-    <p id="profilPosts" class="profilPosts">Pridané posty: 1</p>
+    <?php
+      $database = new mysqli('localhost', 'root', '', 'freeview');
+      $sql = "SELECT user_name FROM user WHERE user_id = " . $_SESSION['login'] . "";   
+      $userName = mysqli_query($database, $sql);
 
+      while($data = mysqli_fetch_array($userName)){
+        $userNameFinal = $data['user_name'];
+        echo '<p id="profilUsername" class="profilUsername">Meno: '. $userNameFinal .'</p>';
+      }
+    ?>
+<!--
     <form class="row g-3">
       <div class="col-auto">
         <label for="staticEmail2" class="visually-hidden">Email</label>
@@ -68,13 +76,30 @@
       </div>
       <div class="col-auto">
         <label for="inputPassword2" class="visually-hidden">Password</label>
-        <input type="password" class="form-control" id="inputPassword2" placeholder="Heslo">
+        <input type="password" name="password" class="form-control" id="inputPassword2" placeholder="Heslo">
       </div>
       <div class="col-auto">
-        <button type="submit" class="btn btn-primary mb-3">Zmeniť heslo</button>
+        <button type="submit" name="submit" class="btn btn-primary mb-3">Zmeniť heslo</button>
       </div>
   </form>
+    -->
   </main>
+
+  <?php
+  /*
+    if(isset($_POST['password'])) {
+      $database = new mysqli('localhost', 'root', '', 'freeview');
+
+      //$email = htmlspecialchars($_POST['email']);
+      $password = hash('ripemd160', $_POST['password']);
+
+      $id = $_SESSION['login'];
+      $sql3 = "REPLACE INTO user (user_id, user_password) VALUES ($id,$password)";
+      $database->query($sql3);
+      echo "<script>location.href='logout.php'</script>";
+    }
+    */
+  ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
