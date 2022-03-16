@@ -49,7 +49,7 @@
   </nav>
 
   <main id="main">
-    <h1 class="title langProjektTitle">Prihlásenie</h1>
+    <h1 class="title langLoginTitle">Prihlásenie</h1>
 
     <form action="login.php" method="post">
     <div class="mb-3">
@@ -76,7 +76,7 @@
 <?php
 
   if(isset($_POST['email'])) {
-    $database = new mysqli('localhost', 'root', '', 'freeview');
+    $database = new mysqli('localhost', 'root', '', 'freeview') or die("Nemozem sa pripojit");
     $email = htmlspecialchars($_POST['email']);
     $password = hash('ripemd160', $_POST['password']);
 

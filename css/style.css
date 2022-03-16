@@ -52,6 +52,10 @@
     font-size: 1.5rem;
 }
 
+#aside-panel select{
+    max-width: 100%;
+}
+
 #timeline{
     position: relative;
     display: block;
@@ -72,11 +76,11 @@
     border-bottom-right-radius: 1rem;
     background-color: #e9ecef;
     margin-top: 1rem;
+    padding: 1rem;
 }
 
 #timeline .newPost .newPost-title{
     font-size: 1.5rem;
-    padding: 1rem;
 }
 
 #timeline .newPost .newPost-textarea{
@@ -119,13 +123,13 @@
 
 #timeline .post .postSection{
     display: block;
-    width: 80%;
+    width: auto;
     margin: 0 auto;
 }
 
-#timeline .post .postSection .postFrom, .postDate, .postLike, .postSave{
+#timeline .post .postSection .postFrom, .postDate{
     display: inline;
-    padding-left: 12%;
+    padding-left: 20%;
 }
 
 #conclusion{
@@ -173,6 +177,10 @@
         padding: 0.5rem;
     }
 
+    #aside-panel a, p, label{
+        font-size: 0.8rem;
+    }
+
     #timeline{
         position: relative;
         display: block;
@@ -189,6 +197,10 @@
 
     #aside-panel .aside-panel-title{
         font-size: 1rem;
+    }
+
+    #timeline .post .postSection .postFrom, .postDate{
+        font-size: 0.8rem;
     }
 
 }

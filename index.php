@@ -23,7 +23,7 @@
     session_start();
     if(!isset($_SESSION["login"])) {
       echo "<script>location.href='login.php'</script>";  
-      die("Neste prihláseny!");
+      die("<script>alert('Nie ste prihláseny!')</script>");
     }
   ?>
 
@@ -61,15 +61,12 @@
     <h1 class="aside-panel-title" id="aside-panel-title">Informácie</h1>
     <p>
       <?php
-        
         $database = new mysqli('localhost', 'root', '', 'freeview');
         $sql = "SELECT user_name FROM user WHERE user_id = " . $_SESSION['login'] . ""; //" . $_SESSION['login'] . "
-      
         $userName = mysqli_query($database, $sql);
 
         while($data = mysqli_fetch_array($userName)){
           $userNameFinal = $data['user_name'];
-
           echo '<a href="profil.php" class="aside_panel_username">'. $userNameFinal .'</a>';
         }
       ?>
@@ -98,26 +95,19 @@
     </div>
 
     <?php
-      $database = new mysqli('localhost', 'root', '', 'freeview');
-
+      $database = new mysqli('localhost', 'root', '', 'freeview') or die("Nemozem sa pripojit");
       if(isset($_POST['newPost-data']))
       {
-
-        $sql1 = "SELECT user_posts FROM user WHERE user_id = " . $_SESSION['login'] . "";
-        $resultPost = mysqli_query($database, $sql);
-
-        $msg = htmlspecialchars($_POST['newPost-data']);
-        $sql = "INSERT INTO post (post_creator, post_msg) VALUES ('" . $_SESSION["login"] . "', '" . $msg . "')";
-        $database->query($sql);
-
-        header('Refresh: 0');
+          $msg = htmlspecialchars($_POST['newPost-data']);
+          $sql = "INSERT INTO post (post_creator, post_msg) VALUES ('" . $_SESSION["login"] . "', '" . $msg . "')";
+          $database->query($sql);
+          header('Refresh: 0');
       }
     ?>
 
     <?php
-      $database = new mysqli('localhost', 'root', '', 'freeview');
-      $sql = "SELECT post_creator, post_msg, user_name, post_created, post_likes FROM post INNER JOIN user ON user_id = post_creator ORDER BY user_id DESC LIMIT 50";
-      
+      $database = new mysqli('localhost', 'root', '', 'freeview') or die("Nemozem sa pripojit");
+      $sql = "SELECT post_creator, post_msg, user_name, post_created FROM post INNER JOIN user ON user_id = post_creator ORDER BY post_created DESC LIMIT 50";
       $result2 = mysqli_query($database, $sql);
 
       while($data = mysqli_fetch_array($result2)){
@@ -134,18 +124,6 @@
           echo '</div>';
       }
     ?>
-
-    <!--
-    <div id="post" class="post">
-      <p class="postText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum eligendi dolores illum fugiat neque ducimus, nemo pariatur voluptas, voluptate quibusdam tempore in minus consectetur aliquam expedita nisi iste quasi molestias?</p>
-      <section class="postSection">
-        <p class="postFrom">From</p>
-        <p class="postDate">Date</p>
-        <p class="postLike">2</p>
-        <p class="postSave langSavePost">Uložiť</p>
-      </section>
-    </div>
-    -->
 
   </main>
   

@@ -23,6 +23,7 @@
     if(!isset($_SESSION["login"])) {
       echo "<script>location.href='login.php'</script>";  
       die("Neste prihláseny!");
+      die("<script>alert('Nie ste prihláseny!')</script>");
     }
   ?>
 
@@ -59,7 +60,7 @@
     <h1 class="title langProfilTitle">Profil</h1>
 
     <?php
-      $database = new mysqli('localhost', 'root', '', 'freeview');
+      $database = new mysqli('localhost', 'root', '', 'freeview') or die("Nemozem sa pripojit");
       $sql = "SELECT user_name FROM user WHERE user_id = " . $_SESSION['login'] . "";   
       $userName = mysqli_query($database, $sql);
 

@@ -52,27 +52,17 @@
     margin: 1rem 0;
 }
 
-#mainProfil .profilUsername{
-    /*Budes doplnovat ked bude treba*/
-}
-
-#mainProfil .profilPosts{
-    /*Budes doplnovat ked bude treba*/
-}
-
-/*
-    Takto ides az do iphone rozliseni
-    v chrome das preskumat, zapnes si zobrazovanie pre mobily, sak vies ;)
-    vacsinou pouzivam rem,vh,% skus sa ich drzat
-    ked chces zadat mensie rem - das 0.9 a ta dalej ale musi byt .
-*/
-@media only screen and (max-width: 1600px) {
-    /*1600px - notebooky*/
+@media only screen and (max-width: 650px) {
 
     #mainProfil{
-        /*Pridas vlastnosti ake budu pri tejto sirke, mozes kopirovat a upravovat z vrchu*/
+        width: 80%;
     }
-
-
-
 }
+
+@media only screen and (max-width: 400px) {
+
+    #mainProfil{
+        width: 90%;
+    }
+}
+

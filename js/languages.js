@@ -66,6 +66,8 @@ $(document).ready(function(){
         //Podstranky
         $(".langProfilTitle").text("Profil");
         $(".langProjektTitle").text("Projekt");
+        $(".langLoginTitle").text("Prihlásiť sa");
+        $(".langRegisterTitle").text("Retistrovať sa");
         
         console.log("Preložené... ");
     }
@@ -101,6 +103,8 @@ $(document).ready(function(){
         //Podstranky
         $(".langProfilTitle").text("Profile");
         $(".langProjektTitle").text("Project");
+        $(".langLoginTitle").text("Login");
+        $(".langRegisterTitle").text("Register");
 
         console.log("Translated... ");
     }
@@ -136,6 +140,8 @@ $(document).ready(function(){
         //Podstranky
         $(".langProfilTitle").text("Профиль");
         $(".langProjektTitle").text("Проект");
+        $(".langLoginTitle").text("Войти");
+        $(".langRegisterTitle").text("Регистрация");
 
         console.log("Переведено... ");
     }

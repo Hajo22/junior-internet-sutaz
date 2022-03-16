@@ -49,7 +49,7 @@
   </nav>
 
   <main id="main">
-    <h1 class="title langProjektTitle">Registrácia</h1>
+    <h1 class="title langRegisterTitle">Registrácia</h1>
 
     <form action="register.php" method="post">
     <div class="mb-3">
@@ -80,7 +80,7 @@
 
 <?php
   if(isset($_POST['username'])) {
-    $database = new mysqli('localhost', 'root', '', 'freeview');
+    $database = new mysqli('localhost', 'root', '', 'freeview') or die("Nemozem sa pripojit");
     $name = htmlspecialchars($_POST['username']);
     $email = htmlspecialchars($_POST['email']);
     $password = hash('ripemd160', $_POST['password']);
